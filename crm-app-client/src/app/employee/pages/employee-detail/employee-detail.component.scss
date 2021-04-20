@@ -1,0 +1,24 @@
+.emp-table-row-title-value {
+  color: #111111;
+}
+.stiky-column{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 10px;
+}
+.treetableDate .ui-widget-content{
+  width: 80%; // or in pixel depends how much width you want.
+}
+
+.progress-spinner {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

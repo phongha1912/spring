@@ -1,0 +1,216 @@
+<p-dialog header="View Employee Personal Information" [(visible)]="displayModal"
+          [modal]="true" [style]="{width: '90vw'}"
+          [baseZIndex]="10000"
+          [draggable]="false" [resizable]="false">
+    <ng-container *ngrxLet="employee$ as employee" class="p-m-0">
+        <p-card>
+            <div class="p-fluid">
+                <h3 style="color: #0066c0; font-weight: bold;">Personal Information</h3>
+                <div class="p-col-12 p-d-flex">
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="fullname"
+                                   class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Full Name</label>
+                            <div class="p-col-12 p-md-10">
+                                <input value="{{employee.fullName}}"
+                                       id="fullname" type="text" pInputText [readOnly]="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="vnfullname" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">VN Name</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="vnfullname" value="N/A"
+                                       type="text" pInputText [readOnly]="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="dob" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Date of Birth</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="dob" pInputText type="text"
+                                       value="{{employee.birthDay | date:'dd/MM/yyyy'}}" [readOnly]="true"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-d-flex">
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="placeOfBirth" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Place of Birth</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="placeOfBirth" type="text" pInputText [readOnly]="true"
+                                       value="{{employee.placeOfBirth}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="vnPlaceOfBirth" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">VN Place of Birth</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="vnPlaceOfBirth" type="text" pInputText [readOnly]="true"
+                                       value="N/A"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="placeOfOrigin" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Place of Origin</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="placeOfOrigin" type="text" pInputText [readOnly]="true"
+                                       value="N/A"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-d-flex">
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="vnPlaceOfBirth" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">VN Place of Origin</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="vnPlaceOfOrigin" type="text" pInputText [readOnly]="true"
+                                       value="N/A"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="placeOfOrigin" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Nationality</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="nationality" type="text" pInputText [readOnly]="true"
+                                       value="N/A"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="vnPlaceOfBirth" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">VN Place of Birth</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="vnPlaceOfBirth" type="text" pInputText [readOnly]="true"
+                                       value="N/A"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-col-12 p-d-flex">
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="gender" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Gender</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="gender" type="text" pInputText [readOnly]="true"
+                                       value="{{employee.gender}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="degree" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Degree</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="degree" type="text" pInputText [readOnly]="true"
+                                       value="{{employee.degree}}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="placeOfOrigin" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Other Degree</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="otherDegree" type="text" pInputText [readOnly]="true"
+                                       value="N/A"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="p-col-12 p-d-flex">
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="vnPlaceOfBirth" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">ID Number</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="idNumber" type="text" pInputText [readOnly]="true"
+                                       value="{{employee.idNumber}}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-col-4">
+                        <div class="p-field p-grid">
+                            <label for="placeOfOrigin" class="p-col-12 p-mb-2 p-md-2 p-mb-md-0">Issue Date</label>
+                            <div class="p-col-12 p-md-10">
+                                <input id="issueDate" type="text" pInputText [readOnly]="true"
+                                       value="{{employee.issueDate | date:'dd/MM/yyyy'}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+
+    </ng-container>
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-times" (click)="displayModal=false" label="Close"
+                  styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+<div class="navbar-container mat-elevation-z6">
+    <nav class="navbar-header">
+        <a mat-button routerLink="/" aria-label="Training">
+            <img class="crm-logo"
+                 src="../../../../assets/img/angular-white-transparent.svg"
+                 alt="angular">
+            <span>LogiGear CRM</span>
+        </a>
+
+        <div class="flex-spacer"></div>
+
+    </nav>
+
+    <nav class="navbar navbar-show-small">
+
+    </nav>
+
+</div>
+<div class="crm-container ">
+
+
+    <!--<div class="mat-typography s-spacing-extra-large">
+        <h2>Administrator</h2>
+    </div>
+
+    <nav mat-tab-nav-bar class="tabbed-content">
+        <a mat-tab-link
+           routerLink="products"
+           routerLinkActive #rla0="routerLinkActive"
+           [active]="rla0.isActive">EMPLOYEES</a>
+    </nav>-->
+
+    <div class="content">
+        <div class="p-grid" *ngrxLet="employees$ as employees">
+            <p-card class="p-col" *ngFor="let emp of employees" (click)="showEmpInformation(emp.id)">
+                <p-card>
+                    <img [style]="{'width': '5rem', 'height': '5rem'}" style="text-align: center;" [src]="emp.image"/>
+                </p-card>
+                <h3 style="text-align: center;"><b>{{emp.fullName}}</b></h3>
+                <h3 style="text-align: center;">
+                    <b class="p-mr-2">ID:</b>
+                    <p-tag severity="success">{{emp.employeeID}}</p-tag>
+                </h3>
+                <h3 style="text-align: center;">
+                    <p-tag>{{emp.jobTitle}}</p-tag>
+                </h3>
+            </p-card>
+
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+<crm-footer></crm-footer>
+

@@ -1,0 +1,45 @@
+server:
+    port: 5001
+spring:
+    main:
+        allow-bean-definition-overriding: true
+    application:
+        name: cdo-aas
+    config:
+        import: consul:192.168.167.114:8500
+    cloud:       
+        consul:
+            config:
+                enable: true
+                prefixes: config
+                defaultContext: application
+                format: yaml
+                data-key: application.yml
+            host: 192.168.167.114
+            port: 8500
+            discovery:
+                instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+                preferIpAddress: true
+                health-check-critical-timeout: 60s
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+    mail:
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    connectiontimeout: 5000
+                    starttls:
+                        enable: true
+                    timeout: 5000
+                    writetimeout: 5000
+    servlet:
+        multipart:
+            enabled: true
+            file-size-threshold: 2KB
+            max-file-size: 200MB
+            max-request-size: 215MB

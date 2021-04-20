@@ -1,0 +1,55 @@
+<form class="signin-form" [formGroup]="signinForm">
+    <div class="crm-box">
+        <div class="crm-box-inner">
+            <h1>Sign-In</h1>
+            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                <div class="ui-grid-row">
+                    <span class="ui-grid-col-6">
+                            <input pInputText placeholder="Email*" type="text"
+                                   formControlName="email" name="email" class="p-autocomplete"/>
+                    </span>
+                    <div class="ui-grid-col-4">
+                        <div [hidden]="!f.email.hasError('email')"
+                             style="color: red;">
+                            Please enter a <b>valid</b> email address
+                        </div>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <div [hidden]="!f.email.hasError('required') || signinForm.controls['email'].valid ||!signinForm.controls['email'].dirty"
+                             style="color: red;">
+                            Email is <b>required</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui-grid-row" style="margin-top: 12px;">
+                    <div class="ui-grid-col-6">
+                        <input pInputText placeholder="Password*" type="password" formControlName="password" name="password"
+                               required>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <div [hidden]="signinForm.controls['password'].valid
+                         || !signinForm.controls['password'].dirty">
+                            <span style="color: red;">Password is required</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: right; margin-top: 12px;">
+                    <a [routerLink]="['/auth','forgotpwd']">Forgot your password?</a>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2"></div>
+                    <div class="ui-grid-col-6">
+                        <button pButton style="margin-top: 14px;"
+                                (click)="login()"
+                                class="p-button-raised p-button-sm p-button-warning"
+                                [disabled]="signinForm.invalid">Continue
+                        </button>
+                    </div>
+                    <div class="ui-grid-col-4"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+<div style="margin-top: 12px;"> New to? &nbsp; <a [routerLink]="['/auth','signup']">Create your account</a></div>

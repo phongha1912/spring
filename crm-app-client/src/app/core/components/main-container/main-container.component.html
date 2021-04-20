@@ -1,0 +1,40 @@
+<div class="navbar-container mat-elevation-z6">
+    <nav class="navbar-header">
+        <a mat-button routerLink="/" aria-label="Training">
+            <img class="crm-logo"
+            src="../../../../assets/img/angular-white-transparent.svg"
+            alt="angular">
+            <span>LogiGear CRM</span>
+        </a>
+    
+        <div class="flex-spacer"></div>
+        
+        <div *ngIf="user$|async as user; else signin">
+            <button mat-button [matMenuTriggerFor]="userMenu">
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #userMenu="matMenu">
+                <a mat-menu-item routerLink="/admin">View all employees</a>
+                <ng-container *ngIf="user.goodAdmin">
+                <mat-divider></mat-divider>
+                <button  mat-menu-item (click)="onAdministratorClicked()">Administrator</button>
+                <mat-divider></mat-divider>
+                </ng-container>
+            
+                <button mat-menu-item (click)="onSignOutClicked()">Sign out</button>
+            </mat-menu>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-show-small">
+       
+    </nav>
+    
+    <ng-template #signin>
+        <button mat-button (click)="onSignInClicked()">
+            <span>Sign in</span>
+        </button>
+    </ng-template>
+</div>
+
+<router-outlet></router-outlet>
