@@ -1,0 +1,12 @@
+<form class="new-employee-form" [formGroup]="newEmployeeForm">
+    <h2> New Employee</h2>
+    <div>
+        <div class="row"><label>Username:</label><input id="employee-username" formControlName = "username" placeHolder="Username" required></div>
+        <div class="row"><label>Password:</label><input id="employee-password" formControlName = "password" placeHolder="password"></div>
+        <div class="row"><label>Full Name:</label><input id="employee-fullname" formControlName = "fullname" placeHolder="Full Name"></div>
+        <div class="row"><label>Role:</label><input id="employee-role" formControlName = "role" placeHolder="Role"></div>
+    </div>
+
+    <button (click)="goBack()">Go back</button>
+    <button (click)="new()">Save</button>
+</form>
