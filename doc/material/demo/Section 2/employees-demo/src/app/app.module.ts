@@ -10,13 +10,6 @@ import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewEmployeeComponent } from './new-employee/new-employee.component';
-import { EmployeeService } from './employee.service';
-
-@NgModule({
-  providers: [
-    EmployeeService
-  ]
-})
 
 @NgModule({
   declarations: [
@@ -39,5 +32,3 @@ import { EmployeeService } from './employee.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
